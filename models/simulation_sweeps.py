@@ -1,16 +1,16 @@
 from utils.header import *
-from models.assignment_cp_sat import solve_and_output_results
-from models.constants import MAX_SOLVER_TIME
+from assignment_cp_sat import solve_and_output_results
+from constants import MAX_SOLVER_TIME
 
 
 def generate_year_state_sweep_configs(
     year="2122",
-    states=["OH"],
+    states=["MD"],
     max_cluster_node_time=43200,
     total_cluster_tasks_per_group=500,
     districts_to_process=[],
     input_dir="data/derived_data/{}/",
-    output_dir="models/sweep_configs/{}_shaker_heights_expanded/",
+    output_dir="models/sweep_configs/{}_md_expanded/",
 ):
     max_percent_distance_increases = [0.25, 0.5, 0.75, 1, 1.5, 2]
     max_percent_size_increases = [0.1, 0.15, 0.2]
@@ -94,11 +94,11 @@ def generate_year_state_sweep_configs(
 
 
 def generate_file_to_rerun_failed_sweeps(
-    results_file="data/prepped_csvs_for_analysis/simulation_outputs/va_2122_dissim/consolidated_simulation_results.csv",
+    results_file="data/prepped_csvs_for_analysis/simulation_outputs/md_2122_dissim/consolidated_simulation_results.csv",
     sweeps_dirs=[
-        "models/sweep_configs/2122_VA_dissim/",
+        "models/sweep_configs/2122_MD_dissim/",
     ],
-    output_dir="models/sweep_configs/2122_VA_dissim_rerun/",
+    output_dir="models/sweep_configs/2122_MD_dissim_rerun/",
     max_cluster_node_time=43200,
     total_cluster_tasks_per_group=500,
 ):
@@ -157,7 +157,7 @@ def run_sweep_for_chunk(
     num_total_chunks,
     group_ID,
     solver_function=solve_and_output_results,
-    sweeps_dir="models/sweep_configs/2122_shaker_heights_expanded/",
+    sweeps_dir="models/sweep_configs/2122_md_expanded/",
 ):
 
     df = pd.read_csv(sweeps_dir + str(group_ID) + ".csv", dtype=str)

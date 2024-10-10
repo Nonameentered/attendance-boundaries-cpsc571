@@ -1,8 +1,8 @@
 from ortools.sat.python import cp_model
 
-from analysis.analyze_model_solution import identify_switched_blocks
-from models.constants import *
-from models.objective_functions import min_total_segregation, min_max_segregation
+from analyze_model_solution import identify_switched_blocks
+from constants import *
+from objective_functions import min_total_segregation, min_max_segregation
 from utils.header import *
 from utils.model_utils import (
     output_solver_solution,
@@ -487,9 +487,7 @@ def set_objective_function_gini(model, x, df, CATS_TO_INCLUDE, objective_functio
                     )
 
                     # Computing terms for gini index
-                    school_pair_pop_prod = model.NewIntVar(
-                        1, MAX_TOTAL_STUDENTS**2, ""
-                    )
+                    school_pair_pop_prod = model.NewIntVar(1, MAX_TOTAL_STUDENTS**2, "")
                     model.AddMultiplicationEquality(
                         school_pair_pop_prod,
                         [total_students_at_school_j, total_students_at_school_k],
@@ -520,9 +518,9 @@ def set_objective_function_gini(model, x, df, CATS_TO_INCLUDE, objective_functio
 
 def solve_and_output_results(
     optimizing_for="white",
-    district_id="3904475",
+    district_id="2400720",
     year="2122",
-    state="OH",
+    state="MD",
     max_percent_travel_increase=0.5,
     max_percent_size_increase=0.15,
     percent_neighbors_rezoned_together=0.5,

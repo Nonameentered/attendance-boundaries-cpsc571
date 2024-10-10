@@ -18,20 +18,20 @@ def get_global_data():
     # Points to CSVs with all the simulation outputs we care about
     sim_results = [
         DATA_DIR
-        + "/data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_dissim_longer/consolidated_simulation_results.csv",
+        + "simulation_outputs/2122_top_100_dissim_longer/consolidated_simulation_results.csv",
         DATA_DIR
-        + "/data/prepped_csvs_for_analysis/simulation_outputs/2122_all_usa_dissim/consolidated_simulation_results.csv",
+        + "simulation_outputs/2122_all_usa_dissim/consolidated_simulation_results.csv",
         DATA_DIR
-        + "/data/prepped_csvs_for_analysis/simulation_outputs/2122_shaker_heights_expanded_dissim/consolidated_simulation_results.csv",
+        + "simulation_outputs/2122_shaker_heights_expanded_dissim/consolidated_simulation_results.csv",
         ## NG: old ones below
         # DATA_DIR
-        # + "/data/prepped_csvs_for_analysis/simulation_outputs/va_2122_exposure/consolidated_simulation_results_filtered.csv",
+        # + "simulation_outputs/va_2122_exposure/consolidated_simulation_results_filtered.csv",
         # DATA_DIR
-        # + "/data/prepped_csvs_for_analysis/simulation_outputs/va_2122_contiguous/consolidated_simulation_results.csv",
+        # + "simulation_outputs/va_2122_contiguous/consolidated_simulation_results.csv",
         # DATA_DIR
-        # + "/data/prepped_csvs_for_analysis/simulation_outputs/all_usa_2122/consolidated_simulation_results.csv",
+        # + "simulation_outputs/all_usa_2122/consolidated_simulation_results.csv",
         # DATA_DIR
-        # + "/data/prepped_csvs_for_analysis/simulation_outputs/nc_wake_2122/consolidated_simulation_results.csv",
+        # + "simulation_outputs/nc_wake_2122/consolidated_simulation_results.csv",
     ]
     df_sim_results = pd.concat([pd.read_csv(s) for s in sim_results]).astype(
         {"district_id": "str"}

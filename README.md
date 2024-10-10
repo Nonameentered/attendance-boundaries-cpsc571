@@ -14,6 +14,33 @@ Nabeel Gillani, Doug Beeferman, Christine Vega-Pourheydarian, Cassandra Overney,
 
 The notes below describe the key code and data files used in / produced from this study.  They likely miss some details and context that might be helpful for replicating and/or building off of this work.  If you find that's the case, please do not hesitate to reach out to <n.gillani@northeastern.edu> with any questions or comments!
 
+# Matt's Notes
+I moved several files into `likely_unnecessary_scripts`, including the existing one that drew the census block map. Unfortunately, the data they used there is not provided to us because they had to purchase access to it.
+
+## Downloading solver_files
+Since we're only doing Maryland, download `solver_files.zip` from our google drive [here](https://drive.google.com/file/d/1rmAf5k1CNSTL_ghatMiArkBmt_XYuhuF/view?usp=drive_link). Place it in `models/models/` repository next to results.
+
+## Set Up
+I recommend the following steps for set up:
+1. `conda create -n attendance`
+2. `conda activate attendance` (if not already activated)
+3. `pip install -r "requirements.txt"`
+
+## Running assignment_cp_sat.py
+
+This is the main file for running the simulation. It takes in data from `models/data/derived_data/.../blocks_file_for_assignment` and `models/models/solver_files/.../` (blocks, prepped, travel time matrix). We can use `simulation_sweeps.py` to run the simulation across different parameters. Run it via `python models/assignment_cp_sat.py` and see the output via `models/models/results/.../solution_[parameters]`.
+
+TODO: Someone might want to take at simulation_sweeps to see if we can adapt/use that code to run the different configurations and school districts in Maryland.
+
+## Evaluating the code with `analyze_model_solution.py`
+
+You can then run `analyze_model_solution.py` to create csvs that detail the actual changes. These can be used to visualize the actual changes
+
+## Running analyze_rezoning_sim_outputs.Rmd
+
+The above Rmd needs serious changing to get to run. I've written some functions to install the necessary packages (which should now work for everyone, some notes about potential `brew` packages that may also need to be installed for those on Mac, specifically Xquartz and Freetype). Someone should take a deeper look at this to see if it's necessary or if we can/should just use Sasha's code for visualization.
+
+
 # Code
 
 Python package dependencies can be found in `requirements.txt`.  The key code folders/files are as follows:

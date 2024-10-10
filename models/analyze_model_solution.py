@@ -77,7 +77,7 @@ def analyze_school_distributions_pre_post(
     cat_optimizing_for,
     school_nces,
     pre_solver_file="models/solver_files/{}/{}/prepped_file_for_solver_{}.csv",
-    output_file="/Users/ngillani/Downloads/{}_{}.csv",
+    output_file="analysis_output/{}_{}.csv",
 ):
     df_orig = pd.read_csv(
         pre_solver_file.format(year, state, district_id), dtype=str
@@ -240,13 +240,13 @@ def remove_solution_dirs(
 
 
 def filter_and_update_consolidated_sims_file(
-    input_file="data/prepped_csvs_for_analysis/simulation_outputs/va_2122_exposure/consolidated_simulation_results.csv",
+    input_file="simulation_outputs/va_2122_exposure/consolidated_simulation_results.csv",
     max_percent_distance_increases=[0.5, 1],
     max_percent_size_increases=[0.1, 0.15, 0.2],
     percent_neighbors_rezoned_together=[0.5],
     optimizing_for=["black", "white", "hisp", "ell", "frl"],
     objective_functions=["min_total"],
-    output_file="data/prepped_csvs_for_analysis/simulation_outputs/va_2122_exposure/consolidated_simulation_results_filtered.csv",
+    output_file="simulation_outputs/va_2122_exposure/consolidated_simulation_results_filtered.csv",
 ):
     df = pd.read_csv(input_file)
     df["is_contiguous"] = [False for i in range(0, len(df))]

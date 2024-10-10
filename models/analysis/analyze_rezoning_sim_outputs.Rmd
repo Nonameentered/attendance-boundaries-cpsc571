@@ -5,8 +5,67 @@ output:
   pdf_document: default
 ---
 
-```{r message=FALSE, warning=FALSE}
-source('imports.R')
+```{r}
+# remotes::install_gitlab("hrbrmstr/hrbrthemes")
+# Note, I needed to install Xquartz via brew install --cask xquartz
+# to get hrbrthemes to work
+
+
+# Matt: Function to install missing packages
+install_if_missing <- function(packages) {
+    # Loop through the list of packages
+    for (pkg in packages) {
+        # If the package is not installed, install it
+        if (!require(pkg, character.only = TRUE)) {
+            install.packages(pkg, dependencies = TRUE)
+            library(pkg, character.only = TRUE)
+        }
+    }
+}
+packages <- c(
+  "MASS", "jtools", "dplyr", "boot", "tidyverse", "texreg", "ggplot2", 
+  "knitr", "lfe", "corrplot", "patchwork", "reshape", "styler", 
+  "spatstat", "sjmisc", "stringr", "forcats", "latex2exp", 
+  "figpatch", "khroma", "systemfonts", "hrbrthemes", "gridExtra", "remotes",
+  "this.path"
+)
+
+install_if_missing(packages)
+```
+
+```{r}
+library(MASS)
+library(jtools)
+library(dplyr)
+library(boot)
+library(tidyverse)
+library(texreg)
+library(ggplot2)
+library(knitr)
+library(lfe)
+library(corrplot)
+library(patchwork)
+library(reshape)
+library(styler)
+library(spatstat)
+library(sjmisc)
+library(stringr)
+library(forcats)
+library(latex2exp)
+library(figpatch)
+library(khroma)
+library(hrbrthemes)
+library(gridExtra)
+
+# setwd('~/OneDrive - Northeastern University/neu/rezoning-schools/analysis/')
+opts_chunk$set(tidy.opts=list(width.cutoff=80),tidy=TRUE)
+```
+
+
+```{r}
+# Uncomment to install
+# install.packages("this.path")
+setwd(this.path::here())
 ```
 
 ## Preliminary setup
@@ -17,11 +76,11 @@ source('helper_functions.R')
 
 ### Set results dir
 ```{r message=FALSE, warning=FALSE}
-data_dir_root_dissim <- "../data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_dissim_longer/"
+data_dir_root_dissim <- "..simulation_outputs/2122_top_100_dissim_longer/"
 sim_root_dir_dissim <- "../simulation_outputs/2122_top_100_dissim_longer/2122"
-data_dir_root_norm_exp <- "../data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_norm_exp/"
+data_dir_root_norm_exp <- "..simulation_outputs/2122_top_100_norm_exp/"
 sim_root_dir_norm_exp <- "../simulation_outputs/2122_top_100_norm_exp/2122"
-data_dir_root_gini <- "../data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_gini/"
+data_dir_root_gini <- "..simulation_outputs/2122_top_100_gini/"
 sim_root_dir_gini <- "../simulation_outputs/2122_top_100_gini/2122"
 ```
 
@@ -226,7 +285,7 @@ sum(df_choice$ratio_c_or_m_to_dist_white > df_choice$ratio_c_or_m_to_dist_non_wh
 ### Figure 4 - sensitivity analyses
 ```{r message=FALSE, warning=FALSE, fig.width=12, fig.height=8}
 
-data_dir_root_norm_exp_sen <- "../data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_norm_exp_sensitivity/"
+data_dir_root_norm_exp_sen <- "..simulation_outputs/2122_top_100_norm_exp_sensitivity/"
 df_norm_exp_sensitivity <- get_main_df(df_dist_metadata, data_dir_root_norm_exp_sen)
 plots <- get_sensitivity_plots(df_norm_exp_sensitivity,
                                opt_cats,

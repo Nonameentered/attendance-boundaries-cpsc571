@@ -7,27 +7,24 @@ import maps
 import impact_plots
 import select_boxes
 import landing_page
-import referral_codes
+
+# import referral_codes
 
 
 def init():
     st.set_page_config(page_title=app_config.TITLE, layout="wide")
     st.title(app_config.TITLE)
 
+    st.session_state["access_obtained"] = True
+
     if not "access_obtained" in st.session_state:
         st.session_state["access_obtained"] = False
     if not "continue_pressed" in st.session_state:
         st.session_state["continue_pressed"] = False
-    if not "referral_code_valid" in st.session_state:
-        st.session_state["referral_code_valid"] = False
-    if not "referral_code_skipped" in st.session_state:
-        st.session_state["referral_code_skipped"] = False
-    if not "referral_code" in st.session_state:
-        st.session_state["referral_code"] = None
 
     content_placeholders = []
-    if not st.session_state["access_obtained"]:
-        content_placeholders = landing_page.check_consent()
+    # if not st.session_state["access_obtained"]:
+    #     content_placeholders = landing_page.check_consent()
 
     return content_placeholders
 
@@ -47,16 +44,9 @@ def app():
     logger.log("START", (), query_params=query_params)
     content_placeholders = init()
 
-    if (
-        ("in_study" in query_params and query_params["in_study"][0] == "0")
-        or ("referral_code" not in query_params)
-        or (
-            st.session_state["continue_pressed"]
-            and (
-                st.session_state["referral_code_valid"]
-                or st.session_state["referral_code_skipped"]
-            )
-        )
+    st.session_state["continue_pressed"] = True
+    if ("in_study" in query_params and query_params["in_study"][0] == "0") or (
+        st.session_state["continue_pressed"]
     ):
         # if True:
         st.session_state["access_obtained"] = True
@@ -74,11 +64,11 @@ def app():
         df_states, df_sim_results = data.get_global_data()
         #        campaign_info = referral_codes.load_campaign_info()
 
-        if st.session_state["referral_code"] and False:
-            user_info = campaign_info.get(st.session_state["referral_code"], {})
-            # Set the state and district by overriding query params
-            query_params["state"] = [user_info["source_data"]["state"]]
-            query_params["district"] = [user_info["source_data"]["leaid"]]
+        # if st.session_state["referral_code"] and False:
+        #     user_info = campaign_info.get(st.session_state["referral_code"], {})
+        #     # Set the state and district by overriding query params
+        #     query_params["state"] = [user_info["source_data"]["state"]]
+        #     query_params["district"] = [user_info["source_data"]["leaid"]]
 
         # Intro text
         include_markdown("welcome_message")
@@ -203,11 +193,11 @@ def app():
                 replacements = blank_state_replacements
                 replacements.update(
                     {
-                        "CATEGORY": app_config.OPTIMIZATION_TARGETS_DISPLAY[
-                            target_group_code
-                        ]
-                        if target_group_code != "white"
-                        else "non-White students",
+                        "CATEGORY": (
+                            app_config.OPTIMIZATION_TARGETS_DISPLAY[target_group_code]
+                            if target_group_code != "white"
+                            else "non-White students"
+                        ),
                         "CAT_DISTRICT_PERCENT": "%.1f%%"
                         % (school_info[curr_group_code]["district_frac"]),
                         "NUM_OVER_CONC_SCHOOLS": "%s"
@@ -265,34 +255,34 @@ def app():
                 query_params=query_params,
             )
             # Render teaser for Qualtrics survey
-            config = app_config.parse_config_code(config_code)
-            qualtrics_url = app_config.QUALTRICS_SURVEY_URL.format(
-                **{
-                    "session_id": "0",
-                    "source_id": "email",
-                    "travel_time_threshold": str(config["travel"]),
-                    "school_size_threshold": str(config["size"]),
-                    "student_cat": target_group_code,
-                    "obj_fcn": "min_total",
-                    "referral_code": ""
-                    if "referral_code" not in st.session_state
-                    else st.session_state["referral_code"],
-                    "is_contiguous": str(config["is_contiguous"]),
-                    "set": "" if "set" not in query_params else query_params["set"][0],
-                }
-            )
-            style = "<style> .big-font { font-size:30px !important ; padding: 5px; background-color: lightgreen; } </style>"
-            with survey_placeholder:
-                # st.info(
-                #     "What do you think about this change?  Take [this survey](%s)!"
-                #     % (qualtrics_url)
-                # )
-                st.markdown(
-                    style
-                    + '<p class="big-font"><a href="%s" target="_blank">Tell us what you think</a> about these boundaries!</p>'
-                    % (qualtrics_url),
-                    unsafe_allow_html=True,
-                )
+            # config = app_config.parse_config_code(config_code)
+            # qualtrics_url = app_config.QUALTRICS_SURVEY_URL.format(
+            #     **{
+            #         "session_id": "0",
+            #         "source_id": "email",
+            #         "travel_time_threshold": str(config["travel"]),
+            #         "school_size_threshold": str(config["size"]),
+            #         "student_cat": target_group_code,
+            #         "obj_fcn": "min_total",
+            #         "referral_code": ""
+            #         # if "referral_code" not in st.session_state
+            #         # else st.session_state["referral_code"],
+            #         "is_contiguous": str(config["is_contiguous"]),
+            #         "set": "" if "set" not in query_params else query_params["set"][0],
+            #     }
+            # )
+            # style = "<style> .big-font { font-size:30px !important ; padding: 5px; background-color: lightgreen; } </style>"
+            # with survey_placeholder:
+            #     # st.info(
+            #     #     "What do you think about this change?  Take [this survey](%s)!"
+            #     #     % (qualtrics_url)
+            #     # )
+            #     st.markdown(
+            #         style
+            #         + '<p class="big-font"><a href="%s" target="_blank">Tell us what you think</a> about these boundaries!</p>'
+            #         % (qualtrics_url),
+            #         unsafe_allow_html=True,
+            #     )
 
             with more_info_placeholder:
                 # Render additional graphs about the change
@@ -348,11 +338,11 @@ def app():
                 )
             )
 
-            st.components.v1.html(
-                '<img width=0 height=0 src="/s2/a.png?referral_code='
-                + str(st.session_state.get("referral_code"))
-                + '">'
-            )
+            # st.components.v1.html(
+            #     '<img width=0 height=0 src="/s2/a.png?referral_code='
+            #     + str(st.session_state.get("referral_code"))
+            #     + '">'
+            # )
 
 
 if __name__ == "__main__":

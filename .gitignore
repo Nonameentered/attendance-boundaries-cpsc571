@@ -23,8 +23,10 @@ frontend/logs/
 analysis/paper_figs/
 .vscode/
 openrouteservice/
-simulation_outputs/
+*simulation_outputs/
 analysis/rsconnect/
+*solver_files/
+*solver_files
 .DS_Store
 .idea
 .idea/*

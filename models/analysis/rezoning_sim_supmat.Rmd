@@ -15,7 +15,7 @@ source('helper_functions.R')
 
 ### Set results dir
 ```{r message=FALSE, warning=FALSE}
-data_dir_root <- "../data/prepped_csvs_for_analysis/simulation_outputs/va_2122_contiguous/"
+data_dir_root <- "..simulation_outputs/va_2122_contiguous/"
 sim_root_dir <- "../simulation_outputs/va_2122_contiguous/2122"
 ```
 

@@ -1,5 +1,5 @@
 # Be sure to sync the S3 data locally here, per ../README.md
-DATA_DIR = "../s3/"
+DATA_DIR = "../simulation_outputs/"
 # DATA_DIR = "../"
 
 TITLE = "Increasing school diversity"
@@ -13,7 +13,7 @@ OUTCOME_TARGETS = {
     "Black students": "black",
     "Hispanic students": "hisp",
     "Asian students": "asian",
-    "Native American students": "native"
+    "Native American students": "native",
     # "free and reduced lunch students": "frl",
     # "English language learners": "ell",
 }

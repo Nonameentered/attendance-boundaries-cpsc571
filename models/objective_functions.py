@@ -1,6 +1,6 @@
 from utils import *
 from ortools.sat.python import cp_model
-from models.constants import *
+from constants import *
 
 
 def min_total_segregation(model, objective_terms):

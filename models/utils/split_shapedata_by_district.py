@@ -11,7 +11,7 @@ import geopandas as gpd
 import os
 
 # Set up the location of all the static data.
-DATA_DIR = "../s3/"
+DATA_DIR = "../simulation_outputs/"
 # DATA_DIR = ""
 
 

@@ -660,7 +660,7 @@ def analyze_choice_options_in_districts(
     charter_schools_file="data/school_covariates/ccd_19_20_charter_status.csv",
     magnet_schools_file="data/school_covariates/ccd_19_20_magnet_status.csv",
     schools_locations_file="data/school_covariates/EDGE_GEOCODE_PUBLICSCH_1920.csv",
-    simulated_dist_results="data/prepped_csvs_for_analysis/simulation_outputs/2122_top_100_dissim_longer/consolidated_simulation_results.csv",
+    simulated_dist_results="simulation_outputs/2122_top_100_dissim_longer/consolidated_simulation_results.csv",
     top_dists_file="data/school_covariates/top_100_largest_districts.csv",
     output_file="data/school_covariates/school_choice_analysis.csv",
 ):
