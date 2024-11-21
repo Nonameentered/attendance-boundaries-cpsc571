@@ -76,9 +76,9 @@ source('helper_functions.R')
 
 ### Set results dir
 ```{r message=FALSE, warning=FALSE}
-data_dir_root_dissim <- "..simulation_outputs/2122_top_100_dissim_longer/"
+data_dir_root_dissim <- "../simulation_outputs/2122_top_100_dissim_longer/"
 sim_root_dir_dissim <- "../simulation_outputs/2122_top_100_dissim_longer/2122"
-data_dir_root_norm_exp <- "..simulation_outputs/2122_top_100_norm_exp/"
+data_dir_root_norm_exp <- "../simulation_outputs/2122_top_100_norm_exp/"
 sim_root_dir_norm_exp <- "../simulation_outputs/2122_top_100_norm_exp/2122"
 data_dir_root_gini <- "..simulation_outputs/2122_top_100_gini/"
 sim_root_dir_gini <- "../simulation_outputs/2122_top_100_gini/2122"
@@ -89,6 +89,11 @@ sim_root_dir_gini <- "../simulation_outputs/2122_top_100_gini/2122"
 # Just using the data dir root folder here to identify states, so doesn't matter which one we use
 df_dist_metadata <- get_district_metadata(data_dir_root_dissim)
 ```
+
+```{r}
+df_dist_metadata
+```
+
 
 
 ### Get main df after combining all district files into one
