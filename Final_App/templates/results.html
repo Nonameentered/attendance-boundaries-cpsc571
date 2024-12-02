@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Metrics Plots</title>
+</head>
+<body>
+    <h1>Generated Metrics Plots</h1>
+
+    <!-- Allocation Plots -->
+    <h2>Allocation Plots</h2>
+    <img src="{{ url_for('static', filename='downloads/allocation_plots.png') }}" alt="Allocation Plots" style="width:100%; max-width:800px;">
+
+    <!-- Metrics Plot (Bar Charts) -->
+    <h2>Metrics Plot (Bar Charts)</h2>
+    <img src="{{ url_for('static', filename='downloads/metrics_plot.png') }}" alt="Metrics Plot" style="width:100%; max-width:800px;">
+
+    <!-- Family Cost vs Lambda Cost -->
+    <h2>Family Cost vs Lambda Cost</h2>
+    <img src="{{ url_for('static', filename='downloads/family_cost_vs_lambda_cost.png') }}" alt="Family Cost vs Lambda Cost" style="width:100%; max-width:800px;">
+
+    <!-- Racial Imbalance vs Lambda Imbalance -->
+    <h2>Racial Imbalance vs Lambda Imbalance</h2>
+    <img src="{{ url_for('static', filename='downloads/racial_imbalance_vs_lambda_imbalance.png') }}" alt="Racial Imbalance vs Lambda Imbalance" style="width:100%; max-width:800px;">
+
+    <!-- Adjusted EEFX Family Cost vs Lambda Distance -->
+    <h2>Adjusted EEFX: Family Cost vs Lambda Distance</h2>
+    <img src="{{ url_for('static', filename='downloads/adjusted_eefx_family_cost_vs_lambda_distance.png') }}" alt="Adjusted EEFX Family Cost vs Lambda Distance" style="width:100%; max-width:800px;">
+
+    <!-- MILP Entropy vs Envy Count -->
+    <h2>MILP: Entropy vs Envy Count</h2>
+    <img src="{{ url_for('static', filename='downloads/milp_entropy_vs_envy_count.png') }}" alt="MILP Entropy vs Envy Count" style="width:100%; max-width:800px;">
+
+    <!-- Adjusted EEFX Entropy vs Envy Count -->
+    <h2>Adjusted EEFX: Entropy vs Envy Count</h2>
+    <img src="{{ url_for('static', filename='downloads/adjusted_eefx_entropy_vs_envy_count.png') }}" alt="Adjusted EEFX Entropy vs Envy Count" style="width:100%; max-width:800px;">
+
+    <!-- Home Button -->
+    <br><br>
+    <a href="/" style="display:inline-block; padding:10px 20px; background-color:#007BFF; color:white; text-decoration:none; border-radius:5px;">Home</a>
+</body>
+</html>

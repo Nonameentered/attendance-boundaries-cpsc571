@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload CSV Files</title>
+</head>
+<body>
+    <h1>Upload CSV Files</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="schools">Schools CSV:</label><br>
+        <input type="file" name="schools" required><br>
+        <label for="tracts">Census Tracts CSV:</label><br>
+        <input type="file" name="tracts" required><br>
+        <label for="race">Race By County CSV:</label><br>
+        <input type="file" name="race" required><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
