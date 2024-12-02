@@ -1,41 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Metrics Plots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Generated Metrics Plots</h1>
+<body class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 min-h-screen flex flex-col items-center justify-start p-6">
+    <div class="bg-gray-800 shadow-2xl rounded-lg p-8 w-full max-w-4xl mt-8 overflow-y-auto max-h-screen">
+        <h1 class="text-3xl font-bold text-center mb-8 text-white">📊 Generated Metrics Plots</h1>
 
-    <!-- Allocation Plots -->
-    <h2>Allocation Plots</h2>
-    <img src="{{ url_for('static', filename='downloads/allocation_plots.png') }}" alt="Allocation Plots" style="width:100%; max-width:800px;">
+        <!-- Allocation Plots -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Allocation Plots</h2>
+            <img src="{{ url_for('static', filename='downloads/allocation_plots.png') }}" 
+                 alt="Allocation Plots" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Metrics Plot (Bar Charts) -->
-    <h2>Metrics Plot (Bar Charts)</h2>
-    <img src="{{ url_for('static', filename='downloads/metrics_plot.png') }}" alt="Metrics Plot" style="width:100%; max-width:800px;">
+        <!-- Metrics Plot (Bar Charts) -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Metrics Plot (Bar Charts)</h2>
+            <img src="{{ url_for('static', filename='downloads/metrics_plot.png') }}" 
+                 alt="Metrics Plot" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Family Cost vs Lambda Cost -->
-    <h2>Family Cost vs Lambda Cost</h2>
-    <img src="{{ url_for('static', filename='downloads/family_cost_vs_lambda_cost.png') }}" alt="Family Cost vs Lambda Cost" style="width:100%; max-width:800px;">
+        <!-- Family Cost vs Lambda Cost -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Family Cost vs Lambda Cost</h2>
+            <img src="{{ url_for('static', filename='downloads/family_cost_vs_lambda_cost.png') }}" 
+                 alt="Family Cost vs Lambda Cost" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Racial Imbalance vs Lambda Imbalance -->
-    <h2>Racial Imbalance vs Lambda Imbalance</h2>
-    <img src="{{ url_for('static', filename='downloads/racial_imbalance_vs_lambda_imbalance.png') }}" alt="Racial Imbalance vs Lambda Imbalance" style="width:100%; max-width:800px;">
+        <!-- Racial Imbalance vs Lambda Imbalance -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Racial Imbalance vs Lambda Imbalance</h2>
+            <img src="{{ url_for('static', filename='downloads/racial_imbalance_vs_lambda_imbalance.png') }}" 
+                 alt="Racial Imbalance vs Lambda Imbalance" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Adjusted EEFX Family Cost vs Lambda Distance -->
-    <h2>Adjusted EEFX: Family Cost vs Lambda Distance</h2>
-    <img src="{{ url_for('static', filename='downloads/adjusted_eefx_family_cost_vs_lambda_distance.png') }}" alt="Adjusted EEFX Family Cost vs Lambda Distance" style="width:100%; max-width:800px;">
+        <!-- Adjusted EEFX Family Cost vs Lambda Distance -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Adjusted EEFX: Family Cost vs Lambda Distance</h2>
+            <img src="{{ url_for('static', filename='downloads/adjusted_eefx_family_cost_vs_lambda_distance.png') }}" 
+                 alt="Adjusted EEFX Family Cost vs Lambda Distance" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- MILP Entropy vs Envy Count -->
-    <h2>MILP: Entropy vs Envy Count</h2>
-    <img src="{{ url_for('static', filename='downloads/milp_entropy_vs_envy_count.png') }}" alt="MILP Entropy vs Envy Count" style="width:100%; max-width:800px;">
+        <!-- MILP Entropy vs Envy Count -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">MILP: Entropy vs Envy Count</h2>
+            <img src="{{ url_for('static', filename='downloads/milp_entropy_vs_envy_count.png') }}" 
+                 alt="MILP Entropy vs Envy Count" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Adjusted EEFX Entropy vs Envy Count -->
-    <h2>Adjusted EEFX: Entropy vs Envy Count</h2>
-    <img src="{{ url_for('static', filename='downloads/adjusted_eefx_entropy_vs_envy_count.png') }}" alt="Adjusted EEFX Entropy vs Envy Count" style="width:100%; max-width:800px;">
+        <!-- Adjusted EEFX Entropy vs Envy Count -->
+        <div class="widget mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600 shadow-md">
+            <h2 class="text-xl font-semibold text-gray-200 mb-4">Adjusted EEFX: Entropy vs Envy Count</h2>
+            <img src="{{ url_for('static', filename='downloads/adjusted_eefx_entropy_vs_envy_count.png') }}" 
+                 alt="Adjusted EEFX Entropy vs Envy Count" 
+                 class="w-full max-w-full rounded-lg border border-gray-700 shadow-md">
+        </div>
 
-    <!-- Home Button -->
-    <br><br>
-    <a href="/" style="display:inline-block; padding:10px 20px; background-color:#007BFF; color:white; text-decoration:none; border-radius:5px;">Home</a>
+        <!-- Home Button -->
+        <div class="text-center mt-8">
+            <a href="/" 
+               class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-500 shadow-md transition-all">
+                Home
+            </a>
+        </div>
+    </div>
 </body>
 </html>
