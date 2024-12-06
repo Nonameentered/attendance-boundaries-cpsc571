@@ -1,65 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload CSV Files</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Upload CSV Files</title>
+   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center p-4">
-    <div class="flex space-x-8">
-        <!-- About Widget -->
-        <div class="bg-gray-800 shadow-2xl rounded-lg p-8 w-full max-w-lg">
-            <h1 class="text-3xl font-bold text-center mb-8 text-white">ℹ️ About</h1>
-            <p class="text-gray-300">
-                This website is part of a Final Project from CPSC 464/564: Algorithms and their Societal Implications titled BALANCE: Boundary Adjustment for Local Academic Needs and Community Equity
-            </p>
-            <p class="text-gray-300 mt-4">
-                This project develops a scalable, fair and multi-factor approach to school zone redistricting to promote socioeconomic integration and reflect the overall demographics of a school district. We design a method that balances community stability, geographic convenience, and demographic parity. Finally, we build a robust algorithm using Mixed-integer linear programming (MILP) that can optimize multiple factors, generate fair boundaries based on various metrics, and offer flexible data-driven redistricting solutions that school systems can adapt to their unique needs.
-            </p>
-            <p class="text-teal-400 mt-4">
-                Matthew Shu, Sasha Spiegel, Savik Kinger, Aadi Krishna, Noah Dee, R. Tyler Schroder
-            </p>
-            <p class="text-teal-400 mt-4">
-                Professor: Nisheeth K. Vishnoi
-            </p>
-        </div>
-        <!-- Upload CSV Files Widget -->
-        <div class="bg-gray-800 shadow-2xl rounded-lg p-8 w-full max-w-lg">
-            <h1 class="text-3xl font-bold text-center mb-8 text-white">📂 Upload CSV Files</h1>
-            <form action="/" method="post" enctype="multipart/form-data" class="space-y-6">
-                <!-- Schools CSV -->
-                <div>
-                    <label for="schools" class="block text-sm font-medium text-gray-300 mb-2">Schools CSV:</label>
-                    <input type="file" name="schools" id="schools" 
-                        class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
-                </div>
-                <!-- Census Tracts CSV -->
-                <div>
-                    <label for="tracts" class="block text-sm font-medium text-gray-300 mb-2">Census Tracts CSV:</label>
-                    <input type="file" name="tracts" id="tracts" 
-                        class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
-                </div>
-                <!-- Race by County CSV -->
-                <div>
-                    <label for="race" class="block text-sm font-medium text-gray-300 mb-2">Race By County CSV:</label>
-                    <input type="file" name="race" id="race" 
-                        class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
-                </div>
-                <!-- Submit Button -->
-                <div class="text-center">
-                    <button type="submit" 
-                            class="w-full bg-teal-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-500 shadow-md transition-all">
-                        Upload Files
-                    </button>
-                </div>
-            </form>
-            <p class="mt-6 text-sm text-center text-gray-400">
-                Ensure files are in <span class="font-semibold text-white">CSV format</span>. 
-                For more information on the project, visit the <a href="https://github.com/Nonameentered/attendance-boundaries-cpsc571" class="text-teal-400 hover:underline">Github</a>.
-            </p>
-        </div>
+   <div class="flex space-x-8">
+       <!-- About Widget -->
+       <div class="bg-gray-800 shadow-2xl rounded-lg p-8 w-full max-w-lg">
+           <h1 class="text-3xl font-bold text-center mb-8 text-white">ℹ️ About</h1>
+           <p class="text-gray-300">
+               This website is part of a Final Project from CPSC 464/564: Algorithms and their Societal Implications titled BALANCE: Boundary Adjustment for Local Academic Needs and Community Equity
+           </p>
+           <p class="text-gray-300 mt-4">
+               This project develops a scalable, fair and multi-factor approach to school zone redistricting to promote socioeconomic integration and reflect the overall demographics of a school district. We design a method that balances community stability, geographic convenience, and demographic parity. Finally, we build a robust algorithm using Mixed-integer linear programming (MILP) that can optimize multiple factors, generate fair boundaries based on various metrics, and offer flexible data-driven redistricting solutions that school systems can adapt to their unique needs.
+           </p>
+           <p class="text-teal-400 mt-4">
+               Matthew Shu, Sasha Spiegel, Savik Kinger, Aadi Krishna, Noah Dee, R. Tyler Schroder
+           </p>
+           <p class="text-teal-400 mt-4">
+               Professor: Nisheeth K. Vishnoi
+           </p>
+       </div>
+       <!-- Upload CSV Files Widget -->
+       <div class="bg-gray-800 shadow-2xl rounded-lg p-8 w-full max-w-lg">
+           <h1 class="text-3xl font-bold text-center mb-8 text-white">📂 Upload CSV Files</h1>
+           <form action="/" method="post" enctype="multipart/form-data" class="space-y-6">
+               <!-- Schools CSV -->
+               <div>
+                   <label for="schools" class="block text-sm font-medium text-gray-300 mb-2">Schools CSV:</label>
+                   <input type="file" name="schools" id="schools"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <!-- Census Tracts CSV -->
+               <div>
+                   <label for="tracts" class="block text-sm font-medium text-gray-300 mb-2">Census Tracts CSV:</label>
+                   <input type="file" name="tracts" id="tracts"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <!-- Race by County CSV -->
+               <div>
+                   <label for="race" class="block text-sm font-medium text-gray-300 mb-2">Race By County CSV:</label>
+                   <input type="file" name="race" id="race"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <!-- Lambda Distance -->
+               <div>
+                   <label for="lambda_distance" class="block text-sm font-medium text-gray-300 mb-2">Lambda Distance:</label>
+                   <input type="number" step="0.01" name="lambda_distance" id="lambda_distance" value="0.5"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <!-- Lambda Racial -->
+               <div>
+                   <label for="lambda_racial" class="block text-sm font-medium text-gray-300 mb-2">Lambda Racial:</label>
+                   <input type="number" step="0.01" name="lambda_racial" id="lambda_racial" value="0.3"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <!-- Lambda Capacity -->
+               <div>
+                   <label for="lambda_capacity" class="block text-sm font-medium text-gray-300 mb-2">Lambda Capacity:</label>
+                   <input type="number" step="0.01" name="lambda_capacity" id="lambda_capacity" value="0.2"
+                       class="block w-full px-4 py-2 text-white bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 hover:bg-gray-600 transition-all" required>
+               </div>
+               <p class="mt-6 text-sm text-center text-gray-400">
+                   We first recommend starting with the values above. Please visit our paper to learn more on how to adjust these values.
+               </p>
+               <!-- Submit Button -->
+               <div class="text-center">
+                   <button type="submit"
+                           class="w-full bg-teal-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-500 shadow-md transition-all">
+                       Upload Files
+                   </button>
+               </div>
+           </form>
+           <p class="mt-6 text-sm text-center text-gray-400">
+               Ensure files are in <span class="font-semibold text-white">CSV format</span>.
+               For more information on the project, visit the <a href="https://github.com/Nonameentered/attendance-boundaries-cpsc571" class="text-teal-400 hover:underline">Github</a>.
+           </p>
+       </div>
+      
 
-    </div>
+
+   </div>
 </body>
 </html>
+
+
+
